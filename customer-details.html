@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Customer Details - RentX</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .details-container {
+      max-width: 700px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+    .details-container h2 {
+      color: #0a78d4;
+      margin-bottom: 1rem;
+    }
+    .details-form {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      max-width: 500px;
+      margin: auto;
+      text-align: left;
+    }
+    .details-form label {
+      margin-top: 0.5rem;
+    }
+    .details-form input, .details-form textarea {
+      width: 100%;
+      padding: 0.5rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+    .details-form button {
+      background-color: #0a78d4;
+      color: white;
+      padding: 0.8rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 1rem;
+      width: 100%;
+    }
+    .extra-charge {
+      color: #d9534f;
+      font-weight: bold;
+      margin-top: 1rem;
+    }
+    .pickup-note {
+      color: #333;
+      margin-top: 1rem;
+      font-size: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">
+      <a href="index.html"><img src="rentx.jpg" alt="RentX Logo" width="120" /></a>
+    </div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </header>
+
+  <div class="details-container">
+    <h2>Customer Details</h2>
+    <form class="details-form" onsubmit="processCustomerDetails(event)">
+      <label for="fullName">Full Name</label>
+      <input type="text" id="fullName" required />
+
+      <label for="dob">Date of Birth</label>
+      <input type="date" id="dob" required />
+
+      <label for="aadhaar">Aadhaar Number</label>
+      <input type="text" id="aadhaar" required />
+
+      <label for="phone">Phone Number</label>
+      <input type="text" id="phone" required />
+
+      <label for="whatsapp">WhatsApp Number</label>
+      <input type="text" id="whatsapp" required />
+
+      <label for="address">Vehicle Delivery Address</label>
+      <textarea id="address" rows="3" placeholder="Enter delivery address if needed"></textarea>
+
+      <p class="extra-charge" id="extraCharge" style="display: none;">Extra Charge for Delivery: ₹50</p>
+      <p class="pickup-note">Note: The vehicle will be picked up from the given address once the rental period is over.</p>
+
+      <button type="submit">Continue to Payment</button>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById("address").addEventListener("input", function() {
+      const extraCharge = document.getElementById("extraCharge");
+      if (this.value.trim() !== "") {
+        extraCharge.style.display = "block";
+        localStorage.setItem("deliveryCharge", 50);
+      } else {
+        extraCharge.style.display = "none";
+        localStorage.removeItem("deliveryCharge");
+      }
+    });
+
+    function processCustomerDetails(event) {
+      event.preventDefault();
+      localStorage.setItem("fullName", document.getElementById("fullName").value);
+      localStorage.setItem("dob", document.getElementById("dob").value);
+      localStorage.setItem("aadhaar", document.getElementById("aadhaar").value);
+      localStorage.setItem("phone", document.getElementById("phone").value);
+      localStorage.setItem("whatsapp", document.getElementById("whatsapp").value);
+      localStorage.setItem("address", document.getElementById("address").value);
+      window.location.href = "payment.html";
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,296 @@
+/* Reset some default styles */
+body, h1, h2, h3, p {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* General Styles */
+body {
+  background-color: #f9f9f9; /* Light background for contrast */
+  color: #264653; /* Dark text for readability */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+/* Header */
+header {
+  background-color: #264653; /* Dark green header */
+  padding: 15px 20px;
+  width: 100%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo img {
+  height: 50px; /* Set logo height */
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+}
+
+.nav-links li {
+  margin: 0 15px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #ffffff; /* White text for links */
+  font-weight: bold;
+}
+
+.nav-links a:hover {
+  color: #e9c46a; /* Change color on hover */
+}
+
+/* Hero Section */
+.hero {
+  background: url('hero-image.jpg') no-repeat center center/cover; /* Background image */
+  height: 60vh; /* Height of the hero section */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #ffffff; /* White text color */
+}
+
+.hero-content h1 {
+  font-size: 2.5rem; /* Large heading */
+  margin-bottom: 10px;
+}
+
+.hero-content p {
+  font-size: 1.2rem; /* Smaller paragraph */
+  margin-bottom: 20px;
+}
+
+.btn {
+  background-color: #2a9d8f; /* Main button color */
+  color: #ffffff; /* Button text color */
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.btn:hover {
+  background-color: #e76f51; /* Hover color for buttons */
+}
+
+/* Vehicle Selection Section */
+.vehicle-selection {
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.bike-grid {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap; /* Allow wrapping of cards */
+  gap: 20px; /* Space between cards */
+}
+
+.bike-card {
+  background-color: #ffffff; /* White background for cards */
+  border: 1px solid #e9c46a; /* Light border around cards */
+  border-radius: 10px;
+  padding: 20px;
+  width: 250px; /* Fixed width for cards */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.bike-card img {
+  width: 100%; /* Responsive image */
+  height: auto;
+  border-radius: 10px;
+}
+
+.bike-card h3 {
+  margin: 10px 0; /* Margin for headings */
+  color: #264653; /* Dark color for headings */
+}
+
+.rent-btn {
+  background-color: #f4a261; /* Different button color for rent */
+}
+
+.rent-btn:hover {
+  background-color: #e76f51; /* Hover color for rent button */
+}
+
+/* Modal Styles */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: #ffffff; /* White background for modal */
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #264653; /* Border color */
+  border-radius: 10px;
+  width: 80%; /* Width of modal */
+  max-width: 500px; /* Max width of modal */
+}
+
+.close {
+  color: #aaa; /* Close button color */
+  float: right; /* Position to the right */
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000; /* Change color on hover */
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Pricing Form */
+#rentalForm {
+  display: flex;
+  flex-direction: column;
+  margin: 20px 0;
+}
+
+#rentalForm label {
+  margin: 10px 0 5px; /* Margin for labels */
+}
+
+#days {
+  padding: 10px;
+  border: 1px solid #264653; /* Input border color */
+  border-radius: 5px; /* Rounded input */
+}
+
+.total-price {
+  margin: 15px 0; /* Margin for total price */
+  font-weight: bold; /* Bold text */
+}
+
+/* Login/Signup Page Styles */
+.container {
+  width: 360px;
+  background: #fff;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  margin-bottom: 20px; /* Space for footer */
+}
+
+.logo-box {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.logo-box img {
+  width: 120px;
+  height: auto;
+}
+
+.button-box {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.toggle-btn {
+  flex: 1;
+  padding: 10px;
+  background: #e0e7ef;
+  border: none;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  border-radius: 5px;
+}
+
+.toggle-btn:hover,
+.toggle-btn.active {
+  background: #0077b6;
+  color: #fff;
+  transform: scale(1.05);
+}
+
+.input-group {
+  display: none;
+  flex-direction: column;
+  text-align: left;
+}
+
+.input-group:not(.hidden) {
+  display: flex;
+}
+
+.input-group h2 {
+  margin-bottom: 15px;
+  color: #333;
+  font-weight: 500;
+  font-size: 1.5rem;
+}
+
+.input-field {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+}
+
+.input-field:focus {
+  border-color: #0077b6;
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 119, 182, 0.5);
+}
+
+.submit-btn {
+  padding: 12px;
+  background: #0077b6;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: all 0.3s;
+}
+
+.submit-btn:hover {
+  background: #005f99;
+  transform: translateY(-3px);
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #777;
+  padding: 10px;
+}

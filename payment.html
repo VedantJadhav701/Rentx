@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Payment - RentX</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* Styling */
+    .payment-container {
+      max-width: 600px;
+      margin: 3rem auto;
+      padding: 2rem;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+    .input-group input, .payment-options input {
+      margin-top: 0.3rem;
+      width: 100%;
+      padding: 0.5rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .btn {
+      background-color: #0a78d4;
+      color: white;
+      border: none;
+      padding: 0.8rem;
+      width: 100%;
+      font-size: 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 1rem;
+    }
+    #qrCode {
+      display: none;
+      margin: 1rem auto;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="payment-container">
+    <h2>Complete Your Payment</h2>
+    <div class="billing-info">
+      <h3>Billing Information</h3>
+      <input type="text" id="fullName" placeholder="Full Name" required />
+      <input type="email" id="email" placeholder="Email" required />
+      <input type="text" id="phone" placeholder="Phone Number" required />
+    </div>
+
+    <div class="payment-method">
+      <h3>Payment Method</h3>
+      <label><input type="radio" name="payment" value="creditCard" required /> Credit/Debit Card</label>
+      <label><input type="radio" name="payment" value="netBanking" /> Net Banking</label>
+      <label><input type="radio" name="payment" value="upi" /> UPI</label>
+      <label><input type="radio" name="payment" value="wallet" /> Digital Wallet</label>
+    </div>
+
+    <div class="rental-summary">
+      <h3>Rental Summary</h3>
+      <p>Vehicle Type: <span id="vehicleType">Loading...</span></p>
+      <p>Duration: <span id="duration">Loading...</span></p>
+      <p>Total Amount: ₹<span id="totalAmount">Loading...</span></p>
+    </div>
+
+    <button class="btn" onclick="displayQRCode()">Pay Now</button>
+
+    <!-- QR Code -->
+    <div id="qrCode">
+      <img src="qr.jpg" alt="QR Code for Payment" width="200" />
+      <p>Scan to Pay</p>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('vehicleType').textContent = localStorage.getItem('selectedVehicle');
+    document.getElementById('duration').textContent = localStorage.getItem('rentalDays') + " Days";
+    document.getElementById('totalAmount').textContent = localStorage.getItem('totalPrice');
+
+    function displayQRCode() {
+      const qrCode = document.getElementById("qrCode");
+      qrCode.style.display = "block";
+    }
+  </script>
+</body>
+</html>
